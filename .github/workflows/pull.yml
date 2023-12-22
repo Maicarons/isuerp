@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Configure Git
         run: |
@@ -27,5 +27,5 @@ jobs:
           cp -R isuerp/* .
           git add .
           git commit -m "Sync with AtomGit"
-          git remote add github-origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/Maicarons/isuerp.git
+          git remote add github-origin https://github.com/Maicarons/isuerp.git
           git push -f github-origin HEAD:master
