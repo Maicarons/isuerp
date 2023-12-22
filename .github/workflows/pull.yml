@@ -1,0 +1,27 @@
+name: Sync with Upstream
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 0"  # 每周日的午夜执行
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "YOSVU Bot"
+          git config --global user.email "bot@yosvu.cn"
+
+      - name: Sync with Upstream
+        run: |
+          git remote add upstream https://atomgit.com/maicarons/isuerp.git
+          git fetch upstream
+          git checkout main
+          git merge upstream/main --no-edit
+          git push origin main
