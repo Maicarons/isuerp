@@ -13,8 +13,8 @@
 
 isu简化了整个ERP系统，将其简单的抽象为两个核心功能，OMS订单系统和WMS库存系统。
 
-整个系统简化成了这个样子：
-
+整个系统简化成了这个样子：  
+(atomgit似乎不能显示mermaid)
 ```mermaid
 ---
 title: 易速智店 项目架构
@@ -48,6 +48,7 @@ flowchart LR
         其他操作 --> |其他系统设置操作| 系统设置
     end
 ```
+<img src="https://mermaid.ink/svg/pako:eNqdk0FL40AUx79KeOemJE3TxBw8LIKXLQt6ECSXaTO1xXSmxAmrtgUFFS_ioXa3i4vinvayQVCUbel-miat32LTjLUTLcLunCa_95-8_3szrwll6mCwQJZlm7Aac7ElRb3O08F19K0f9r9KTze_x5dBdPUQXR3ZJJFVXPq5XEUekz6u2cQmUrx2_NKWhxpVqYTK25g4nKYiqy4tIVde-TCPTVfYPQk7h5IsL0stl261nkHUORsNv0-C23DYTR8Y3w3Gg-tJ8Gc8DIRjHC8-9mIo2bxy_Km4vsBtTN9YnQQ_wrOukJODd6xe_IxOH0WTCfgPkxsLTW4sMBn2O-GvntjPBITnvejy_p9yVjxKWOouxXp5hlkpUz7rx1zPU7_Vcz6zJuiFq0_pEz57GoL--GE0-CLqORGfCI-2Us_mpWbIQB17dVRz4hloTrENrIrr2AYr3jq4gnyX2WCTdixFPqPre6QMFvN8nAG_4SCGV2oo7lcdrApyd2LaQGST0vk3dmqMekU-Z8m4JRqwmrALlmxqZlZRFdNQdF3N63kzA3tg5fRCNqct5ZR8QTVVQ9PaGdhP_qpmFSOf0w1FMwtLulowtPZf34yJFA" alt="" title="Img"/>
 但是，麻雀虽小，五脏俱全，对于小微商业交易来说完全够用。
 
 ## 项目目录
