@@ -1,9 +1,8 @@
-name: Sync with Upstream
+name: Sync with AtomGit
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: "0 0 * * 0"  # 每周日的午夜执行
+    - cron: "0 0 * * 0" # 每周日午夜执行
 
 jobs:
   sync:
@@ -11,17 +10,15 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
-      - name: Configure Git
-        run: |
-          git config --global user.name "YOSVU Bot"
-          git config --global user.email "bot@yosvu.cn"
+      - name: Clone AtomGit repository
+        run: git clone https://atomgit.com/maicarons/isuerp.git
 
-      - name: Sync with Upstream
+      - name: Copy files to GitHub repository
         run: |
-          git remote add upstream https://atomgit.com/maicarons/isuerp.git
-          git fetch upstream
-          git checkout master
-          git merge upstream/master --no-edit --allow-unrelated-histories
-          git push origin master
+          cp -R isuerp/* .
+          git add .
+          git commit -m "Sync with AtomGit"
+          git remote add github-origin https://github.com/Maicarons/isuerp.git
+          git push -f github-origin HEAD:master
