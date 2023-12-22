@@ -1,6 +1,7 @@
 name: Sync with AtomGit
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 0 * * 0" # 每周日午夜执行
 
