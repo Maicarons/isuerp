@@ -1,0 +1,12 @@
+syntax = "v1"
+
+type resp {
+	msg      string `json:"msg"`
+	unixtime int64  `json:"unixtime"`
+}
+
+service server {
+	@handler ping
+	get /ping returns (resp)
+}
+

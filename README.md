@@ -9,13 +9,59 @@
 * 政策：国家大力支持小微经济，尤其是地摊经济的发展
 * 需求：市面上大部分`ERP`过于臃肿，不适合小微经济使用
 
+## 原理流程
 
+isu简化了整个ERP系统，将其简单的抽象为两个核心功能，OMS订单系统和WMS库存系统。
+
+整个系统简化成了这个样子：
+
+```mermaid
+---
+title: 易速智店 项目架构
+---
+flowchart LR
+
+    subgraph backend
+        subgraph Global-DB
+            商品 --> |log| 商品操作记录
+            系统设置 --> |log| 系统操作记录
+        end
+    end
+
+    subgraph OMS
+        subgraph OMS-DB
+            订单 --> |log| 订单操作记录
+            用户 --> |log| 用户操作记录
+        end
+    end
+
+    subgraph WMS
+        subgraph WMS-DB
+            库存 --> |log| 库存变更记录
+        end
+    end
+
+    subgraph frontend
+        订单操作 --> |操作订单| 订单
+        库存操作 --> |操作库存| 库存
+        商品操作 --> |操作商品| 商品
+        其他操作 --> |其他系统设置操作| 系统设置
+    end
+```
+但是，麻雀虽小，五脏俱全，对于小微商业交易来说完全够用。
 
 ## 项目目录
 
 - 后端
+  - server - 服务器版
+  - localserver - 本地服务版
 - 前端
+  - Web - 网站版
+  - Desktop APP - 桌面版
+  - Mobile APP - 手机版
 - 数据库
+  - MySQL（适用于服务器版）
+  - SQLite（适用于服务器版和本地服务版）
 
 <!-- ## 运行说明
 > 说明如何运行和使用你的项目，建议给出具体的步骤说明
