@@ -23,5 +23,5 @@ jobs:
           git remote add upstream https://atomgit.com/maicarons/isuerp.git
           git fetch upstream
           git checkout master
-          git merge upstream/master --no-edit
+          git merge upstream/master --no-edit --allow-unrelated-histories
           git push origin master
