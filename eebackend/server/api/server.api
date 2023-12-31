@@ -1,12 +1,79 @@
 syntax = "v1"
 
-type resp {
-	msg      string `json:"msg"`
-	unixtime int64  `json:"unixtime"`
+info (
+	title:   "易速智店 API"
+	desc:    "易速智店项目的后端API接口"
+	author:  "Your Name"
+	date:    "2023年12月24日"
+	version: "v1"
+)
+
+// 商品操作请求
+type ProductActionReq {
+	ProductID string `json:"product_id"`
+	Action    string `json:"action"` // 操作类型，如"添加"、"更新"、"删除"
 }
 
+// 商品操作响应
+type ProductActionResp {
+	Success bool   `json:"success"`
+	Message string `json:"message"` // 操作结果的描述信息
+}
+
+// 库存操作请求
+type InventoryActionReq {
+	InventoryID string `json:"inventory_id"`
+	Action      string `json:"action"` // 操作类型，如"增加"、"减少"
+}
+
+// 库存操作响应
+type InventoryActionResp {
+	Success bool   `json:"success"`
+	Message string `json:"message"` // 操作结果的描述信息
+}
+
+// 订单操作请求
+type OrderActionReq {
+	OrderID string `json:"order_id"`
+	Action  string `json:"action"` // 操作类型，如"创建"、"取消"、"完成"
+}
+
+// 订单操作响应
+type OrderActionResp {
+	Success bool   `json:"success"`
+	Message string `json:"message"` // 操作结果的描述信息
+}
+
+// 系统设置操作请求
+type SystemSettingActionReq {
+	SettingID string `json:"setting_id"`
+	Action    string `json:"action"` // 操作类型，如"修改"、"查询"
+}
+
+// 系统设置操作响应
+type SystemSettingActionResp {
+	Success bool   `json:"success"`
+	Message string `json:"message"` // 操作结果的描述信息
+}
+
+@server (
+	prefix: /api/v1 // API版本前缀
+)
 service server {
-	@handler ping
-	get /ping returns (resp)
+	// 商品操作接口
+	@handler productAction
+	post /product/action (ProductActionReq) returns (ProductActionResp)
+
+	// 库存操作接口
+	@handler inventoryAction
+	post /inventory/action (InventoryActionReq) returns (InventoryActionResp)
+
+	// 订单操作接口
+	@handler orderAction
+	post /order/action (OrderActionReq) returns (OrderActionResp)
+
+	// 系统设置操作接口
+	@handler systemSettingAction
+	post /system/setting/action (SystemSettingActionReq) returns (SystemSettingActionResp)
 }
 

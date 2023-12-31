@@ -13,10 +13,26 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 	server.AddRoutes(
 		[]rest.Route{
 			{
-				Method:  http.MethodGet,
-				Path:    "/ping",
-				Handler: pingHandler(serverCtx),
+				Method:  http.MethodPost,
+				Path:    "/inventory/action",
+				Handler: inventoryActionHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/order/action",
+				Handler: orderActionHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/product/action",
+				Handler: productActionHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/system/setting/action",
+				Handler: systemSettingActionHandler(serverCtx),
 			},
 		},
+		rest.WithPrefix("/api/v1"),
 	)
 }

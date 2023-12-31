@@ -1,8 +1,5 @@
--- Create Global_DB database
-CREATE DATABASE Global_DB;
-
--- Use Global_DB database
-USE Global_DB;
+CREATE DATABASE isuerp;
+USE isuerp;
 
 -- Create 'products' table
 CREATE TABLE products (
@@ -41,12 +38,6 @@ CREATE TABLE system_logs (
                              FOREIGN KEY (setting_id) REFERENCES system_settings(setting_id)
 );
 
--- Create OMS_DB database
-CREATE DATABASE OMS_DB;
-
--- Use OMS_DB database
-USE OMS_DB;
-
 -- Create 'orders' table
 CREATE TABLE orders (
                         order_id INT PRIMARY KEY,
@@ -84,11 +75,6 @@ CREATE TABLE user_logs (
                            FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
--- Create WMS_DB database
-CREATE DATABASE WMS_DB;
-
--- Use WMS_DB database
-USE WMS_DB;
 
 -- Create 'inventory' table
 CREATE TABLE inventory (
