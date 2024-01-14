@@ -8,10 +8,11 @@ info(
 )
 
 
-type request {
-    // TODO: add members here and delete this comment
+type req {
+
 }
 
-type response {
-    // TODO: add members here and delete this comment
+type resp {
+    code int `json:"code"`
+    satus bool `json:"satus"`
 }

@@ -25,6 +25,8 @@ func NewOrderActionLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Order
 
 func (l *OrderActionLogic) OrderAction(req *types.OrderActionReq) (resp *types.OrderActionResp, err error) {
 	// todo: add your logic here and delete this line
-
+	resp = &types.OrderActionResp{
+		Message: "ok",
+	}
 	return
 }

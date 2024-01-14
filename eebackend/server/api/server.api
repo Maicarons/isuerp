@@ -1,79 +1,82 @@
 syntax = "v1"
 
 info (
-	title:   "易速智店 API"
-	desc:    "易速智店项目的后端API接口"
-	author:  "Your Name"
-	date:    "2023年12月24日"
+	title:   "EasySpeedSmartShop API"
+	desc:    "Backend API interface for the EasySpeedSmartShop project"
+	author:  "Maicarons"
+	date:    "2023-12-24"
 	version: "v1"
 )
 
-// 商品操作请求
+// Request for product actions such as "add", "update", "delete"
 type ProductActionReq {
-	ProductID string `json:"product_id"`
-	Action    string `json:"action"` // 操作类型，如"添加"、"更新"、"删除"
+	ProductID string `json:"product_id"` // The ID of the product
+	Action    string `json:"action"`     // The action to be performed
 }
 
-// 商品操作响应
+// Response for product actions
 type ProductActionResp {
-	Success bool   `json:"success"`
-	Message string `json:"message"` // 操作结果的描述信息
+	Success bool   `json:"success"` // Indicates if the action was successful
+	Message string `json:"message"` // Description of the action result
 }
 
-// 库存操作请求
+// Request for inventory actions such as "increase", "decrease"
 type InventoryActionReq {
-	InventoryID string `json:"inventory_id"`
-	Action      string `json:"action"` // 操作类型，如"增加"、"减少"
+	InventoryID string `json:"inventory_id"` // The ID of the inventory
+	Action      string `json:"action"`       // The action to be performed
 }
 
-// 库存操作响应
+// Response for inventory actions
 type InventoryActionResp {
-	Success bool   `json:"success"`
-	Message string `json:"message"` // 操作结果的描述信息
+	Success bool   `json:"success"` // Indicates if the action was successful
+	Message string `json:"message"` // Description of the action result
 }
 
-// 订单操作请求
+// Request for order actions such as "create", "cancel", "complete"
 type OrderActionReq {
-	OrderID string `json:"order_id"`
-	Action  string `json:"action"` // 操作类型，如"创建"、"取消"、"完成"
+	OrderID string `json:"order_id"` // The ID of the order
+	Action  string `json:"action"`   // The action to be performed
 }
 
-// 订单操作响应
+// Response for order actions
 type OrderActionResp {
-	Success bool   `json:"success"`
-	Message string `json:"message"` // 操作结果的描述信息
+	Success bool   `json:"success"` // Indicates if the action was successful
+	Message string `json:"message"` // Description of the action result
 }
 
-// 系统设置操作请求
+// Request for system setting actions such as "modify", "query"
 type SystemSettingActionReq {
-	SettingID string `json:"setting_id"`
-	Action    string `json:"action"` // 操作类型，如"修改"、"查询"
+	SettingID string `json:"setting_id"` // The ID of the system setting
+	Action    string `json:"action"`     // The action to be performed
 }
 
-// 系统设置操作响应
+// Response for system setting actions
 type SystemSettingActionResp {
-	Success bool   `json:"success"`
-	Message string `json:"message"` // 操作结果的描述信息
+	Success bool   `json:"success"` // Indicates if the action was successful
+	Message string `json:"message"` // Description of the action result
 }
 
 @server (
-	prefix: /api/v1 // API版本前缀
+	prefix: /api/v1 // API version prefix
 )
 service server {
-	// 商品操作接口
+	// Product action interface
 	@handler productAction
 	post /product/action (ProductActionReq) returns (ProductActionResp)
 
-	// 库存操作接口
+	// Inventory action interface
 	@handler inventoryAction
 	post /inventory/action (InventoryActionReq) returns (InventoryActionResp)
 
-	// 订单操作接口
+	// Order action interface
 	@handler orderAction
 	post /order/action (OrderActionReq) returns (OrderActionResp)
 
-	// 系统设置操作接口
+	// Test interface for order actions
+	@handler orderActionTest
+	post /order/action/test (OrderActionReq) returns (OrderActionResp)
+
+	// System setting action interface
 	@handler systemSettingAction
 	post /system/setting/action (SystemSettingActionReq) returns (SystemSettingActionResp)
 }
-
