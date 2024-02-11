@@ -64,14 +64,20 @@ flowchart LR
 
 - 后端
   - server - 服务器版
-  - localserver - 本地服务版
-- 前端
+  - localserver - 本地版
+- 前端 （一套代码）
   - Web - 网站版
   - Desktop APP - 桌面版
   - Mobile APP - 手机版
 - 数据库
   - MySQL（适用于服务器版）
-  - SQLite（适用于服务器版和本地服务版）
+  - SQLite（适用于本地版）
+
+## isu，启动！
+
+暂时没法做docker，所以启动前先配置下环境。
+
+## 编译
 
 <!-- ## 运行说明
 > 说明如何运行和使用你的项目，建议给出具体的步骤说明
