@@ -1,5 +1,5 @@
 name: isu
-description: "isu"
+description: "isu projects"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -31,10 +31,23 @@ dependencies:
   flutter:
     sdk: flutter
 
+  get:
+  chinese_font_library: ^1.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  markdown_viewer: ^0.6.2
+  flutter_prism: ^0.2.2
+#  drift: ^2.15.0
+#  sqlite3_flutter_libs: ^0.5.20
+  path_provider: ^2.1.2
+  path: ^1.8.3
+  logger: ^2.0.2+1
+  window_manager: ^0.3.8
+  package_info_plus: ^5.0.1
+#  isar: ^3.1.0+1
+#  isar_flutter_libs: ^3.1.0+1
 
 dev_dependencies:
   flutter_test:
@@ -46,6 +59,38 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+#  drift_dev: ^2.15.0
+#  build_runner: ^2.4.8
+#  isar_generator: ^3.1.0+1
+  icons_launcher: ^2.1.7
+
+icons_launcher:
+  image_path: 'icon.png'
+  platforms:
+    android:
+      enable: true
+      image_path: 'icon.png'
+      # adaptive_background_color: '#ffffff'
+      adaptive_background_image: 'icon.png'
+      adaptive_foreground_image: 'icon.png'
+      adaptive_round_image: 'icon.png'
+      adaptive_monochrome_image: 'icon.png'
+    ios:
+      enable: true
+      image_path: 'icon.png'
+    web:
+      enable: true
+      image_path: 'icon.png'
+      favicon_path: 'icon.png'
+    macos:
+      enable: true
+      image_path: 'icon.png'
+    windows:
+      enable: true
+      image_path: 'icon.png'
+    linux:
+      enable: true
+      image_path: 'icon.png'
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
